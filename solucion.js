@@ -1,4 +1,4 @@
-const nota = {
+const notas = {
     4: "Exceeds proficiency",
     3: "Demonstrates profiencicy",
     2: "Approaches profiencicy",
@@ -9,8 +9,8 @@ const nota = {
 
 
 let ingresoNota = prompt("Por favor ingresa su nota");
-for (const key in nota) {
+for (const key in notas) {
     if (ingresoNota === key) {
-        console.log(nota[key]);
+        console.log(notas[key]);
     }
 }
