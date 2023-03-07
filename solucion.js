@@ -21,7 +21,7 @@ notas.forEach((element) => {
 if (calificacion.length > 0) {
   let rta = notas.find((nota) => nota.equivalencia === calificacion);
 
-  let respuesta = `Su calificacion es ${calificacion} ${rta.mensaje}`;
+  console.log(`Su calificacion es ${calificacion} ${rta.mensaje}`);
 } else {
   console.log("Por favor ingrese un numero valido");
 }
