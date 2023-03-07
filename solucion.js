@@ -12,5 +12,6 @@ let ingresoNota = prompt("Por favor ingresa su nota");
 for (const key in notas) {
     if (ingresoNota === key) {
         console.log(notas[key]);
+        
     }
 }
