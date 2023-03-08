@@ -7,22 +7,50 @@ const notas = [
   { equivalencia: "Z", mensaje: "No attempt made", rango: [0, 0], traditional:[0,0], sbg:0 }
 ];
 
-let ingresoNota = parseInt(
-  prompt("Por favor ingresa su nota")
-);
+let opcion=Number(prompt(`Por favor ingresa el tipo de nota que va a ingresar\n\t1.Por rango\n\t2.Tradicional\n\t3.sbg`))
+
+
 let calificacion = "";
+let ingresoNota =0
+switch (opcion) {
+  
+  case 1:
+    ingresoNota = parseInt(
+      prompt("Por favor ingresa su nota entre el rango 12 - 14 ")
+    );
+    notas.forEach((element) => {
+      if (ingresoNota >= element.rango[0] && ingresoNota <= element.rango[1]) {
+        calificacion = element.equivalencia;
+    
+      } 
+    });
+    break;
+  case 2:
+     ingresoNota = parseInt(
+      prompt("Por favor ingresa su nota entre el rango 0 - 100 ")
+    );
+    notas.forEach((element) => {
+      if (ingresoNota>=element.traditional[0] && ingresoNota<= element.traditional[1]) {
+        calificacion=element.equivalencia;
+    
+      }
+    });
+    
+    break;
+  case 3:
+   ingresoNota = parseInt(
+      prompt("Por favor ingresa su nota entre el rango 0 - 4 ")
+    );
+    notas.forEach((element) => {
+      if (ingresoNota===element.sbg) {
+        calificacion=element.equivalencia;
+      } 
+    });
+    
+    break;
+}
 
-notas.forEach((element) => {
-  if (ingresoNota >= element.rango[0] && ingresoNota <= element.rango[1]) {
-    calificacion = element.equivalencia;
-  }
-  else if (ingresoNota>=element.traditional[0] && ingresoNota<= element.traditional[1]) {
-    calificacion=element.equivalencia;
 
-  }else if (ingresoNota===element.sbg) {
-    calificacion=element.equivalencia;
-  } 
-});
 
 if (calificacion.length > 0) {
   let rta = notas.find((nota) => nota.equivalencia === calificacion);
